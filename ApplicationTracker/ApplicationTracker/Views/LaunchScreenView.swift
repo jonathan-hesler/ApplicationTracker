@@ -18,7 +18,11 @@ struct LaunchScreenView: View {
                 //Login form
                 Form {
                     TextField("example@email.com", text: $email)
+                        .autocorrectionDisabled()
+                        .autocapitalization(.none)
                     SecureField("password", text: $password)
+                        .autocorrectionDisabled()
+                        .autocapitalization(.none)
                     Button(action: {
                         
                     }, label: {
