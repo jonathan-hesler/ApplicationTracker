@@ -9,22 +9,21 @@ import SwiftUI
 
 struct LaunchScreenView: View {
     
-    @State var email: String = ""
-    @State var password: String = ""
+    @StateObject var launchScreenViewModel = LaunchScreenViewModel()
     
     var body: some View {
         NavigationView {
             VStack {
                 //Login form
                 Form {
-                    TextField("example@email.com", text: $email)
+                    TextField("Email", text: $launchScreenViewModel.email)
                         .autocorrectionDisabled()
                         .autocapitalization(.none)
-                    SecureField("password", text: $password)
+                    SecureField("Password", text: $launchScreenViewModel.password)
                         .autocorrectionDisabled()
                         .autocapitalization(.none)
                     Button(action: {
-                        
+                        launchScreenViewModel.login()
                     }, label: {
                         Text("Login")
                     })
